@@ -6,6 +6,5 @@
 # Example (uncomment before use and make sure this file is listed in the
 # processing includes in Jekyll's _config.yml)
 
-#/*
-#  X-Frame-Options: DENY
-#  X-XSS-Protection: 1; mode=block
+X-Frame-Options: DENY
+X-XSS-Protection: 1; mode=block
