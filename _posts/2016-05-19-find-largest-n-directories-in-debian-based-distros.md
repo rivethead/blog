@@ -39,34 +39,34 @@ The magic ingredient bringing all the subcommand together is the | (pipe) operat
 Below is a more visual explanation of how the command as a whole works when broken down into the subcommands.
 
 Imagine a directory structure as shown below:
-![Directory structure]({{/assets/2016-05-19/bc662920-7d83-4606-9a71-bc2a8968038b.png}})
+![Directory structure](/assets/2016-05-19/bc662920-7d83-4606-9a71-bc2a8968038b.png)
 
 
 Breaking the command up into each step we can see the how the commands build on top of each other to give us the required result
 
 `find . -type d -print0`: Prints (-print0) all the directories (-type d) next to each other
 
-![Directory structure]({{/assets/2016-05-19/a6a9c3b8-793f-40f1-aed9-ba3ef25d8d37.png}})
+![find . -type d -print0](/assets/2016-05-19/a6a9c3b8-793f-40f1-aed9-ba3ef25d8d37.png)
 
 
 `find . -type d -print0 | xargs -0 du`: Prints the directory name and size in bytes (du)
 
-![Directory structure]({{/assets/2016-05-19/da8ee46d-7df8-4253-83b9-f5db7194456e.png}})
+![find . -type d -print0 | xargs -0 du](/assets/2016-05-19/da8ee46d-7df8-4253-83b9-f5db7194456e.png)
 
 
 `find . -type d -print0 | xargs -0 du | sort -n`: Sorts (sort -n) the results numerical based on the size of the directory
 
-![Directory structure]({{/assets/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png}})
+![find . -type d -print0 | xargs -0 du | sort -n](/assets/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png)
 
 `find . -type d -print0 | xargs -0 du | sort -n | tail -10`: Takes the last (tail) 10 (-10) entries based on the size of the directories
 
-![Directory structure]({{/assets/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png}})
+![find . -type d -print0 | xargs -0 du | sort -n | tail -10](/assets/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png)
 
 `find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2`: Cuts (cut) the second field (-f2) from the tail result
 
-![Directory structure]({{/assets/2016-05-19/3c7b99b6-6cbf-4fbd-a613-115d84c6d98e.png}})
+![find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2](/assets/2016-05-19/3c7b99b6-6cbf-4fbd-a613-115d84c6d98e.png)
 
 
 `find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2 | xargs -I{} du -sh {}`: Takes the name of the directory from the cut command, and pass the name to the du command via xarg to get the size (du)of each directory in human readable form (-sh)
 
-![Directory structure]({{/assets/2016-05-19/8ace5489-6e97-4a41-9a39-5c12a7c7b669.png}})
+![Final result](/assets/2016-05-19/8ace5489-6e97-4a41-9a39-5c12a7c7b669.png)
