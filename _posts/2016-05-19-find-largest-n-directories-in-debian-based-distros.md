@@ -46,26 +46,23 @@ Breaking the command up into each step we can see the how the commands build on 
 
 `find . -type d -print0`: Prints (-print0) all the directories (-type d) next to each other
 
-![find . -type d -print0](/assets/img/2016-05-19/a6a9c3b8-793f-40f1-aed9-ba3ef25d8d37.png)
-
+![Step 1](/assets/img/2016-05-19/a6a9c3b8-793f-40f1-aed9-ba3ef25d8d37.png)
 
 `find . -type d -print0 | xargs -0 du`: Prints the directory name and size in bytes (du)
 
-![find . -type d -print0 | xargs -0 du](/assets/img/2016-05-19/da8ee46d-7df8-4253-83b9-f5db7194456e.png)
-
+![Step 2](/assets/img/2016-05-19/da8ee46d-7df8-4253-83b9-f5db7194456e.png)
 
 `find . -type d -print0 | xargs -0 du | sort -n`: Sorts (sort -n) the results numerical based on the size of the directory
 
-![find . -type d -print0 | xargs -0 du | sort -n](/assets/img/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png)
+![Step 3](/assets/img/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png)
 
 `find . -type d -print0 | xargs -0 du | sort -n | tail -10`: Takes the last (tail) 10 (-10) entries based on the size of the directories
 
-![find . -type d -print0 | xargs -0 du | sort -n | tail -10](/assets/img/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png)
+![Step 4](/assets/img/2016-05-19/8333d45d-2f4a-4c77-b172-6f75ebf84db9.png)
 
 `find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2`: Cuts (cut) the second field (-f2) from the tail result
 
-![find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2](/assets/img/2016-05-19/3c7b99b6-6cbf-4fbd-a613-115d84c6d98e.png)
-
+![Step 5](/assets/img/2016-05-19/3c7b99b6-6cbf-4fbd-a613-115d84c6d98e.png)
 
 `find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2 | xargs -I{} du -sh {}`: Takes the name of the directory from the cut command, and pass the name to the du command via xarg to get the size (du)of each directory in human readable form (-sh)
 
