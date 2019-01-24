@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Find largest n directories in Debian based distros
-author: schutte_pieter
-date: '2016-05-19 12:00:00'
-categories: linux
+tags: [linux, tech]
 ---
 
 I have been working a lot on Linux the last couple of months. And I don't mean Linux with a nice front end, I mean from the command line. Please note my Linux experience is/was basically zero, and mostly involved getting in touch with a Linux administrator friend of mine (let us call him Linux Administrator from Heaven or LAFH). So the learning curve has been steep, but well worth it.

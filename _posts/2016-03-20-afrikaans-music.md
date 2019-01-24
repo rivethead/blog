@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Afrikaans Music
-author: schutte_pieter
-date: '2016-03-20 12:00:00'
-categories: music
+tags: [music]
 ---
 
 Watched ["Dis ek, Anna"](http://www.imdb.com/title/tt4417520/) last week. Not a light-hearted film, but worth the watch. Definitely worth a watch. Go and watch it.
@@ -40,8 +38,4 @@ So here is a short list of Afrikaans music I think is worth listening to. Ok I a
 I am sure there a thousand other Afrikaans songs worth listening to, and I am very sure I will return to this list and add some more songs.
 
 I really enjoyed putting this list together. Just so little time to listen to all this music.
-
-
-
-
 
